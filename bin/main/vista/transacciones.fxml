@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="bpnTransMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1152.0" stylesheets="@css/transacciones.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.TransControlador">
+   <left>
+      <VBox prefHeight="700.0" prefWidth="274.0" style="-fx-background-color: #401C72;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="107.0" prefWidth="274.0" style="-fx-background-color: #2A1647;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="57.0" layoutY="35.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-font-size: 26;" text="Transacciones" textFill="WHITE">
+                     <font>
+                        <Font size="32.0" />
+                     </font></Label>
+               </children>
+            </AnchorPane>
+            <VBox prefWidth="274.0">
+               <children>
+                  <Button graphicTextGap="28.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#entrarHome" prefHeight="70.0" style="-fx-alignment: center-left;" styleClass="buttonTrans" text="Inicio" textFill="WHITE">
+                     <graphic>
+                        <ImageView fx:id="inicio_logo" fitHeight="29.0" fitWidth="33.0">
+                           <image>
+                              <Image url="@icon/inicio_logo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="25.0" />
+                     </padding>
+                  </Button>
+                  <Button graphicTextGap="36.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registrarTrans" prefHeight="70.0" style="-fx-alignment: center-left;" styleClass="buttonTrans" text="Registro" textFill="WHITE">
+                     <font>
+                        <Font name="Cambria" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fx:id="reg_logo">
+                           <image>
+                              <Image url="@icon/reg_logo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="31.0" />
+                     </padding>
+                  </Button>
+                  <Button graphicTextGap="26.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#entrarConsTrans" prefHeight="70.0" style="-fx-alignment: center-left;" styleClass="buttonTrans" text="Consulta" textFill="WHITE">
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@icon/cons_logo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="21.0" />
+                     </padding>
+                  </Button>
+                  <Button graphicTextGap="30.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#entrarActReg" prefHeight="70.0" style="-fx-alignment: center-left;" styleClass="buttonTrans" text="Actualizar" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <graphic>
+                        <ImageView>
+                           <image>
+                              <Image url="@icon/act_logo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="23.0" />
+                     </padding>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </VBox>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <StackPane fx:id="stpCenter" prefHeight="700.0" prefWidth="878.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="regTransBienvenido" layoutX="288.0" layoutY="315.0" style="-fx-font-size: 60;" styleClass="labelLight" text="Bienvenido!" visible="false" />
+            <AnchorPane fx:id="regTransCedula" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="878.0" visible="false">
+               <children>
+                  <Label layoutX="66.0" layoutY="323.0" style="-fx-font-size: 18;" text="Cedula del cliente" />
+                  <TextField fx:id="txfRegTransCedula" layoutX="66.0" layoutY="354.0" onKeyPressed="#validarInputEnteroSinLimite" prefHeight="35.0" prefWidth="230.0" />
+                  <Button layoutX="162.0" layoutY="357.0" mnemonicParsing="false" text="¿Cliente nuevo?" visible="false" />
+                  <Button fx:id="btnContinuarATipoTrans" layoutX="686.0" layoutY="620.0" mnemonicParsing="false" onAction="#continuarATipoTransaccion" prefWidth="100.0" text="Continuar" />
+                  <Button layoutX="66.0" layoutY="422.0" mnemonicParsing="false" onAction="#abrirClientesOtraVentana" prefHeight="37.0" prefWidth="141.0" style="-fx-font-size: 16;" text="Registrar cliente" />
+                  <Label layoutX="66.0" layoutY="76.0" style="-fx-font-size: 36;" styleClass="labelLight" text="Bienvenido a Registrar Transacción!" />
+                  <Label layoutX="66.0" layoutY="249.0" style="-fx-font-size: 26;" text="¿Quién solicitará la transacción?" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="regTransTipo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="878.0" visible="false">
+               <children>
+                  <ComboBox fx:id="regTransCbxTipoTrans" layoutX="307.0" layoutY="349.0" prefHeight="40.0" prefWidth="263.0" />
+                  <Label layoutX="307.0" layoutY="312.0" style="-fx-font-size: 18;" text="Seleccione el tipo de transacción:" />
+                  <Button layoutX="686.0" layoutY="620.0" mnemonicParsing="false" onAction="#continuarASimulacion" prefWidth="100.0" text="Continuar" />
+                  <Button layoutX="66.0" layoutY="620.0" mnemonicParsing="false" onAction="#botonAtras" prefWidth="100.0" text="Atrás" />
+                  <Label layoutX="66.0" layoutY="76.0" style="-fx-font-size: 36;" styleClass="labelLight" text="Tipo de solicitud" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="regTransSimulacion" prefHeight="700.0" prefWidth="878.0" visible="false">
+               <children>
+                  <Label layoutX="66.0" layoutY="127.0" style="-fx-font-size: 18;" text="Monto" />
+                  <Label layoutX="506.0" layoutY="127.0" style="-fx-font-size: 18;" text="Número de periodos (Mes)" />
+                  <Label layoutX="66.0" layoutY="238.0" style="-fx-font-size: 18;" text="Tasa de interés(EA)" />
+                  <Label layoutX="506.0" layoutY="238.0" style="-fx-font-size: 18;" text="Fecha de Iniciación" />
+                  <TextField fx:id="txfRegTransMonto" layoutX="66.0" layoutY="162.0" onKeyPressed="#validarInputNumerico" prefHeight="35.0" prefWidth="280.0" />
+                  <TextField fx:id="txfRegTransNumCuotas" layoutX="506.0" layoutY="162.0" onKeyPressed="#validarInputEntero" prefHeight="35.0" prefWidth="280.0" />
+                  <TextField fx:id="txfRegTransTasa" layoutX="66.0" layoutY="273.0" onKeyPressed="#validarInputNumerico" prefHeight="35.0" prefWidth="280.0" />
+                  <Label layoutX="66.0" layoutY="361.0" style="-fx-font-size: 18;" text="Simulación" />
+                  <Button layoutX="166.0" layoutY="356.0" mnemonicParsing="false" onAction="#generarSimulacion" text="Generar" />
+                  <DatePicker fx:id="dtpFechaIniciacion" editable="false" layoutX="506.0" layoutY="273.0" prefHeight="35.0" prefWidth="280.0" />
+                  <Button layoutX="686.0" layoutY="620.0" mnemonicParsing="false" onAction="#continuarASoportes" prefWidth="100.0" text="Continuar" />
+                  <Button layoutX="66.0" layoutY="620.0" mnemonicParsing="false" onAction="#botonAtras" prefWidth="100.0" text="Atrás" />
+                  <TableView fx:id="tableSimulacion" layoutX="66.0" layoutY="417.0" prefHeight="169.0" prefWidth="720.0">
+                    <columns>
+                      <TableColumn fx:id="tableSimulacionNoCuota" prefWidth="75.0" text="No. Cuota" />
+                      <TableColumn fx:id="tableSimulacionMens" prefWidth="101.0" text="Mensualidad" />
+                        <TableColumn fx:id="tableSimulacionFPago" prefWidth="97.0" text="Fecha de pago" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="66.0" layoutY="49.0" style="-fx-font-size: 30;" text="Simulación de transacción">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="regTransSoportes" prefHeight="700.0" prefWidth="878.0" visible="false">
+               <children>
+                  <Label layoutX="66.0" layoutY="49.0" style="-fx-font-size: 30;" text="Soportes de crédito">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="66.0" layoutY="127.0" style="-fx-font-size: 26;" text="Garantías">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="186.0" layoutY="128.0" mnemonicParsing="false" onAction="#nuevaGarantiaRegTrans" text="Nueva garantía" />
+                  <Label fx:id="lblRegTransClieSinGarantias" layoutX="66.0" layoutY="174.0" style="-fx-font-size: 18;" text="El cliente no tiene garantías registradas" />
+                  <HBox fx:id="hbxGarantiasAnadidas" layoutX="66.0" layoutY="464.0" spacing="10.0">
+                     <children>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-font-size: 18;" text="Agregadas" />
+                        <Button mnemonicParsing="false" onAction="#cancelarAnadidasRegTrans" prefWidth="90.0" text="Cancelar" />
+                     </children>
+                  </HBox>
+                  <TextArea fx:id="taGarantiasAnadidas" editable="false" layoutX="66.0" layoutY="509.0" prefHeight="90.0" prefWidth="720.0" />
+                  <VBox fx:id="vbxRegTransTablaGarantias" layoutX="66.0" layoutY="188.0" prefHeight="255.0" prefWidth="721.0" spacing="10.0">
+                     <children>
+                        <Label style="-fx-font-size: 18;" text="Seleccione una garantía y presione el botón Anadir" />
+                        <TableView fx:id="tableRegTransGarantias" prefWidth="740.0">
+                          <columns>
+                            <TableColumn fx:id="tableRegTransGarantiasCod" prefWidth="74.0" text="Código" />
+                            <TableColumn fx:id="tableRegTransGarantiasTipo" prefWidth="155.0" text="Tipo" />
+                              <TableColumn fx:id="tableRegTransGarantiasVal" prefWidth="188.0" text="Valor" />
+                              <TableColumn fx:id="tableRegTransGarantiasUbi" prefWidth="294.0" text="Ubicación" />
+                          </columns>
+                        </TableView>
+                        <Button mnemonicParsing="false" onAction="#anadirGarantiaRegTrans" prefWidth="90.0" text="Anadir" />
+                     </children>
+                  </VBox>
+                  <Button layoutX="686.0" layoutY="620.0" mnemonicParsing="false" onAction="#continuarAFiadorRegTrans" prefWidth="100.0" text="Continuar" />
+                  <Button layoutX="66.0" layoutY="620.0" mnemonicParsing="false" onAction="#botonAtras" prefWidth="100.0" text="Atrás" />
+                  <Button layoutX="326.0" layoutY="128.0" mnemonicParsing="false" onAction="#refrescarTableRegTransGarantias" prefWidth="100.0" text="Refrescar" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="regTransSoportesFiador" prefHeight="700.0" prefWidth="878.0" visible="false">
+               <children>
+                  <Label layoutX="66.0" layoutY="187.0" style="-fx-font-size: 26;" text="Fiador">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="66.0" layoutY="230.0" style="-fx-font-size: 18;" text="Cédula del fiador" />
+                  <TextField fx:id="txfRegTransFiador" layoutX="66.0" layoutY="264.0" onKeyPressed="#validarInputEnteroSinLimite" prefHeight="35.0" prefWidth="230.0" />
+                  <Label layoutX="66.0" layoutY="76.0" style="-fx-font-size: 36;" text="Soportes de crédito">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="66.0" layoutY="620.0" mnemonicParsing="false" onAction="#botonAtras" prefWidth="100.0" text="Atrás" />
+                  <Button layoutX="686.0" layoutY="620.0" mnemonicParsing="false" onAction="#finalizarRegTransPrestamo" prefWidth="100.0" text="Finalizar" />
+                  <Button layoutX="66.0" layoutY="342.0" mnemonicParsing="false" onAction="#abrirClientesOtraVentana" text="Registrar cliente" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="regTransInfoPago" prefHeight="200.0" prefWidth="200.0" visible="false">
+               <children>
+                  <Label layoutX="66.0" layoutY="76.0" style="-fx-font-size: 36;" text="Información de pago">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="66.0" layoutY="157.0" text="Cuenta bancaria">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="266.0" layoutY="157.0" mnemonicParsing="false" onAction="#nuevaCuentaBancariaRegTrans" text="Registrar cuenta" />
+                  <Button layoutX="413.0" layoutY="157.0" mnemonicParsing="false" onAction="#refrescarTableRegTransCuentasBanc" text="Refrescar" />
+                  <Label fx:id="lblRegTransClienteSinCuentas" layoutX="66.0" layoutY="206.0" text="El cliente no ha registrado cuentas bancarias">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <VBox fx:id="vbxRegTransInfoPago" layoutX="66.0" layoutY="220.0" prefHeight="381.0" prefWidth="721.0" spacing="10.0">
+                     <children>
+                        <Label style="-fx-font-size: 20;" text="Cuentas del cliente">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label style="-fx-font-size: 18;" text="Seleccione una cuenta y presione el botón asociar" />
+                        <TableView fx:id="tableRegTransCuentasBanc" prefHeight="163.0" prefWidth="759.0">
+                          <columns>
+                            <TableColumn fx:id="tableColumnRegTransCuentasBancNumCuenta" prefWidth="208.0" text="Número de cuenta" />
+                            <TableColumn fx:id="tableColumnRegTransCuentasBancBanco" minWidth="0.0" prefWidth="332.0" text="Banco" />
+                              <TableColumn fx:id="tableColumnRegTransCuentasBancTipo" prefWidth="217.0" text="Tipo de cuenta" />
+                          </columns>
+                        </TableView>
+                        <Button mnemonicParsing="false" onAction="#anadirCuentaBancariaRegTrans" prefWidth="90.0" text="Asociar" />
+                        <Label style="-fx-font-size: 20;" text="Cuenta asociada" />
+                        <TextField fx:id="txfRegTransCuentaAsociada" prefHeight="35.0" />
+                     </children>
+                  </VBox>
+                  <Button layoutX="686.0" layoutY="620.0" mnemonicParsing="false" onAction="#finalizarRegTransInversion" prefWidth="100.0" text="Finalizar" />
+                  <Button layoutX="66.0" layoutY="620.0" mnemonicParsing="false" onAction="#botonAtras" prefWidth="100.0" text="Atrás" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="consTransCedula" prefHeight="200.0" prefWidth="200.0" visible="false">
+               <children>
+                  <Label layoutX="66.0" layoutY="323.0" style="-fx-font-size: 18;" text="Cédula del cliente">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="66.0" layoutY="76.0" text="Bienvenido a Consultar Transacción!">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txfConsTransCedula" layoutX="67.0" layoutY="357.0" prefHeight="35.0" prefWidth="230.0" />
+                  <Button layoutX="686.0" layoutY="620.0" mnemonicParsing="false" onAction="#consTransContinuarABusqueda" text="Continuar" />
+                  <Label layoutX="66.0" layoutY="249.0" style="-fx-font-size: 26;" text="Digite el cliente de la transacción" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="consTransBusqueda" prefHeight="200.0" prefWidth="200.0" visible="false">
+               <children>
+                  <Label layoutX="66.0" layoutY="76.0" text="Consultar transacción">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tblConsultarTrans" layoutX="66.0" layoutY="248.0" prefHeight="318.0" prefWidth="721.0">
+                    <columns>
+                      <TableColumn fx:id="tblConsultarTransCod" prefWidth="88.0" text="Código" />
+                      <TableColumn fx:id="tblConsultarTransTipo" prefWidth="156.0" text="Tipo" />
+                        <TableColumn fx:id="tblConsultarTransMonto" prefWidth="171.0" text="Monto" />
+                        <TableColumn fx:id="tblConsultarTransFechaIni" prefWidth="168.0" text="Fecha iniciación" />
+                        <TableColumn fx:id="tblConsultarTransEstado" prefWidth="183.0" text="Estado" />
+                    </columns>
+                  </TableView>
+                  <Button layoutX="686.0" layoutY="620.0" mnemonicParsing="false" onAction="#verDetallesConsTrans" text="Ver detalles" />
+                  <Label layoutX="66.0" layoutY="154.0" style="-fx-font-size: 24;" text="Transacciones del cliente" />
+                  <Label layoutX="66.0" layoutY="208.0" style="-fx-font-size: 18;" text="Seleccione una transacción y presione el botón Ver Detalles" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="actTransCedula" prefHeight="200.0" prefWidth="200.0" visible="false">
+               <children>
+                  <Label layoutX="66.0" layoutY="323.0" style="-fx-font-size: 18;" text="Cédula del cliente">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="66.0" layoutY="76.0" text="Bienvenido a Actualizar Transacción!">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txfActTransCedula" layoutX="66.0" layoutY="358.0" prefHeight="35.0" prefWidth="230.0" />
+                  <Button layoutX="686.0" layoutY="620.0" mnemonicParsing="false" onAction="#actTransContinuarABusqueda" text="Continuar" />
+                  <Label layoutX="66.0" layoutY="249.0" style="-fx-font-size: 26;" text="Digite el cliente de la transacción">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="actTransBusqueda" prefHeight="200.0" prefWidth="200.0" visible="false">
+               <children>
+                  <Label layoutX="66.0" layoutY="76.0" text="Actualizar transacción">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tblActTrans" layoutX="66.0" layoutY="248.0" prefHeight="318.0" prefWidth="721.0">
+                     <columns>
+                        <TableColumn fx:id="tblActTransCod" prefWidth="88.0" text="Código" />
+                        <TableColumn fx:id="tblActTransTipo" prefWidth="156.0" text="Tipo" />
+                        <TableColumn fx:id="tblActTransMonto" prefWidth="171.0" text="Monto" />
+                        <TableColumn fx:id="tblActTransFechaIni" prefWidth="168.0" text="Fecha iniciación" />
+                        <TableColumn fx:id="tblActTransEstado" prefWidth="183.0" text="Estado" />
+                     </columns>
+                  </TableView>
+                  <Button layoutX="686.0" layoutY="620.0" mnemonicParsing="false" onAction="#actTransContinuarAModificacion" prefWidth="100.0" text="Continuar" />
+                  <Label layoutX="66.0" layoutY="154.0" style="-fx-font-size: 24;" text="Transacciones del cliente" />
+                  <Label layoutX="66.0" layoutY="208.0" style="-fx-font-size: 18;" text="Seleccione la transacción a modificar y presione el botón Continuar" />
+                  <Button layoutX="66.0" layoutY="620.0" mnemonicParsing="false" onAction="#botonAtras" prefWidth="100.0" text="Atrás" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="actTransGarantias" prefHeight="700.0" prefWidth="878.0" visible="false">
+               <children>
+                  <Label layoutX="66.0" layoutY="49.0" style="-fx-font-size: 30;" text="Actualizar garantías">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="66.0" layoutY="127.0" text="Garantías">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="157.0" layoutY="122.0" mnemonicParsing="false" onAction="#nuevaGarantiaRegTrans" text="Nueva garantía" />
+                  <Label fx:id="lblActTransClienteSinGarantias" layoutX="66.0" layoutY="174.0" style="-fx-font-size: 18;" text="El cliente no tiene garantías registradas" />
+                  <HBox fx:id="hbxActTransGarantiasAnadidas" layoutX="66.0" layoutY="450.0" spacing="10.0">
+                     <children>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-font-size: 16;" text="Garantias asociadas. Seleccione una garantía para borrarla" />
+                        <Button mnemonicParsing="false" onAction="#actTransBorrarGarantiaListView" prefWidth="70.0" text="Borrar" />
+                     </children>
+                  </HBox>
+                  <VBox fx:id="vbxActTransTableGarantias" layoutX="66.0" layoutY="188.0" prefHeight="244.0" prefWidth="721.0" spacing="10.0">
+                     <children>
+                        <Label style="-fx-font-size: 18;" text="Seleccione una garantía y presione el botón anadir" />
+                        <TableView fx:id="tblActTransGarantias" prefWidth="712.0">
+                           <columns>
+                              <TableColumn fx:id="tblActTransGarantiasCod" prefWidth="74.0" text="Código" />
+                              <TableColumn fx:id="tblActTransGarantiasTipo" prefWidth="155.0" text="Tipo" />
+                              <TableColumn fx:id="tblActTransGarantiasValor" prefWidth="188.0" text="Valor" />
+                              <TableColumn fx:id="tblActTransGarantiasUbicacion" prefWidth="294.0" text="Ubicación" />
+                           </columns>
+                        </TableView>
+                        <Button mnemonicParsing="false" onAction="#actTransAnadirGarantiaListView" prefWidth="70.0" text="Anadir" />
+                     </children>
+                  </VBox>
+                  <Button layoutX="686.0" layoutY="620.0" mnemonicParsing="false" onAction="#actTransContinuarAFiador" prefWidth="100.0" text="Continuar" />
+                  <Button layoutX="66.0" layoutY="620.0" mnemonicParsing="false" onAction="#botonAtras" prefWidth="100.0" text="Atrás" />
+                  <Button layoutX="417.0" layoutY="173.0" mnemonicParsing="false" onAction="#refrescarTblActTransGarantias" text="Refrescar" />
+                  <ListView fx:id="lsvActTransGarantiasAnadidas" layoutX="66.0" layoutY="495.0" prefHeight="104.0" prefWidth="721.0" />
+                  <Button layoutX="577.0" layoutY="620.0" mnemonicParsing="false" onAction="#actTransUpdateGarantias" prefWidth="100.0" text="Guardar" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="actTransFiador" prefHeight="700.0" prefWidth="878.0" visible="false">
+               <children>
+                  <Label layoutX="66.0" layoutY="187.0" style="-fx-font-size: 26;" text="Fiador">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="66.0" layoutY="230.0" style="-fx-font-size: 18;" text="Cédula del fiador" />
+                  <TextField fx:id="txfActTransFiador" layoutX="66.0" layoutY="264.0" onKeyPressed="#validarInputEnteroSinLimite" prefHeight="35.0" prefWidth="230.0" />
+                  <Label layoutX="66.0" layoutY="76.0" style="-fx-font-size: 36;" text="Actualizar fiador">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="66.0" layoutY="620.0" mnemonicParsing="false" onAction="#botonAtras" prefWidth="100.0" text="Atrás" />
+                  <Button layoutX="686.0" layoutY="620.0" mnemonicParsing="false" onAction="#actTransUpdateFiador" prefWidth="100.0" text="Guardar" />
+                  <Button layoutX="66.0" layoutY="342.0" mnemonicParsing="false" onAction="#abrirClientesOtraVentana" text="Registrar cliente" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="actTransInfoPago" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="66.0" layoutY="76.0" text="Información de pago">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="66.0" layoutY="157.0" text="Cuenta bancaria">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="266.0" layoutY="157.0" mnemonicParsing="false" onAction="#nuevaCuentaBancariaRegTrans" text="Registrar cuenta" />
+                  <Button layoutX="413.0" layoutY="157.0" mnemonicParsing="false" onAction="#refrescarTblActTransCuentas" text="Refrescar" />
+                  <Label fx:id="lblActTransClienteSinCuentas" layoutX="66.0" layoutY="206.0" text="El cliente no ha registrado cuentas bancarias" visible="false">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <VBox fx:id="vbxActTransCuentas" layoutX="66.0" layoutY="220.0" prefHeight="381.0" prefWidth="721.0" spacing="10.0">
+                     <children>
+                        <Label style="-fx-font-size: 20;" text="Cuentas del cliente">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label style="-fx-font-size: 16;" text="Seleccione una cuenta y presione el botón asociar" />
+                        <TableView fx:id="tblActTransCuentas" prefHeight="163.0" prefWidth="759.0">
+                           <columns>
+                              <TableColumn fx:id="tblColActTransCuentasNumCuenta" prefWidth="208.0" text="Número de cuenta" />
+                              <TableColumn fx:id="tblColActTransCuentasBanco" minWidth="0.0" prefWidth="332.0" text="Banco" />
+                              <TableColumn fx:id="tblColActTransCuentasTipoCuenta" prefWidth="217.0" text="Tipo de cuenta" />
+                           </columns>
+                        </TableView>
+                        <Button mnemonicParsing="false" onAction="#actTransAsociarCuentaTextField" text="Asociar" />
+                        <Label style="-fx-font-size: 20;" text="Cuenta asociada" />
+                        <TextField fx:id="txfActTransCuentaAsociada" prefHeight="35.0" />
+                     </children>
+                  </VBox>
+                  <Button layoutX="686.0" layoutY="620.0" mnemonicParsing="false" onAction="#actTransUpdateCuentaAsociada" prefWidth="100.0" text="Guardar" />
+                  <Button layoutX="66.0" layoutY="620.0" mnemonicParsing="false" onAction="#botonAtras" prefWidth="100.0" text="Atrás" />
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+   </center>
+</BorderPane>
