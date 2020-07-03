@@ -30,7 +30,7 @@ public class ClientesControlador {
 	Conexion conexion = new Conexion();
 	Connection cn = conexion.getConexion();
 	
-	//Creacion de la sentencia 
+	//Creacion de la sentencia a ejecutar.
 	String sentenciaSQL;
 	Statement sentencia=null;
 	
@@ -91,7 +91,7 @@ public class ClientesControlador {
 		actDireccionTF.clear();
 	}
 	
-	//Este método ejecuta una sentencia SQL. Devuelve el ResultSet con el resultado de dicha consulta.
+	//Este mï¿½todo ejecuta una sentencia SQL. Devuelve el ResultSet con el resultado de dicha consulta.
 	public ResultSet ejecutarSentencia(String sentenciaSQL) {
 		ResultSet resultSet=null;
 		try {
@@ -125,8 +125,8 @@ public class ClientesControlador {
 		alerta.showAndWait();		
 	}
 	
-	//Método que fuerza a los campos de cédula y teléfono a solo recibir entradas numéricas.
-	//También hace que no se pueda digitar del número 0 de primero.		
+	//Mï¿½todo que fuerza a los campos de cï¿½dula y telï¿½fono a solo recibir entradas numï¿½ricas.
+	//Tambiï¿½n hace que no se pueda digitar del nï¿½mero 0 de primero.		
 	@FXML
 	public void validarInputNumerico(KeyEvent event) {
 		try {
@@ -143,17 +143,17 @@ public class ClientesControlador {
 
 		if(cedulaTF.getText().isEmpty() || nombresTF.getText().isEmpty() || telefonoTF.getText().isEmpty() ||
 				direccionTF.getText().isEmpty() || emailTF.getText().isEmpty()) {	
-			mostrarAlerta(AlertType.ERROR, "Error al ingresar", null, "Todos los datos son obligatorios. Por favor rellenar los campos vacíos.");			
+			mostrarAlerta(AlertType.ERROR, "Error al ingresar", null, "Todos los datos son obligatorios. Por favor rellenar los campos vacï¿½os.");			
 			return;
 		}
 		
 		//En caso de que el cliente exista, muestra la alerta y sale del metodo registrarCliente().
 		if(validarCliente(cedulaTF)) {			
-			mostrarAlerta(AlertType.ERROR, "Cliente existente", null, "El cliente ya está registrado en el sistema.");			
+			mostrarAlerta(AlertType.ERROR, "Cliente existente", null, "El cliente ya estï¿½ registrado en el sistema.");			
 			return;
 		}
 		
-		//Creación y ejecución de la sentencia.
+		//Creaciï¿½n y ejecuciï¿½n de la sentencia.
 		sentenciaSQL = "INSERT INTO cliente(cedula, nombres, telefono, email, direccion)";
 		sentenciaSQL = sentenciaSQL + "VALUES ('" + cedulaTF.getText() + "','"+nombresTF.getText()+"','"
 				+ telefonoTF.getText() + "','" + direccionTF.getText() + "','" + emailTF.getText() + "')";		
@@ -162,7 +162,7 @@ public class ClientesControlador {
 		sentencia.close();
 		
 		//Alerta de registro exitoso.
-		mostrarAlerta(AlertType.INFORMATION, "Registro creado", "Cliente registrado con éxito", null);
+		mostrarAlerta(AlertType.INFORMATION, "Registro creado", "Cliente registrado con ï¿½xito", null);
 		limpiarTextFields();
 		//Se cierra el ResultSet y el Statement
 		rs.close();
@@ -173,10 +173,10 @@ public class ClientesControlador {
 	@FXML
 	public void consultarCliente(ActionEvent event) throws SQLException{	
 
-		//Valida que el campo de cédula no esté vacío.
+		//Valida que el campo de cï¿½dula no estï¿½ vacï¿½o.
 		if(buscarCedulaTF.getText().isEmpty()) {	
 			limpiarTextFields();
-			mostrarAlerta(AlertType.ERROR, "Error", "Campo vacío", "Por favor ingrese un valor en la casilla de búsqueda.");			
+			mostrarAlerta(AlertType.ERROR, "Error", "Campo vacï¿½o", "Por favor ingrese un valor en la casilla de bï¿½squeda.");			
 			return;
 		}
 	
@@ -193,10 +193,10 @@ public class ClientesControlador {
 			consDireccionTF.setText(rs.getString("direccion"));
 			buscarCedulaTF.clear();
 		}
-		//Si no, dar aviso de que no se encontró el cliente, limpiar los textfield y salir del controlador consultarCliente().
+		//Si no, dar aviso de que no se encontrï¿½ el cliente, limpiar los textfield y salir del controlador consultarCliente().
 		else {
 			limpiarTextFields();
-			mostrarAlerta(AlertType.ERROR, "Cliente no encontrado", null, "No se encontraron registros con la cédula ingresada.");
+			mostrarAlerta(AlertType.ERROR, "Cliente no encontrado", null, "No se encontraron registros con la cï¿½dula ingresada.");
 			return;
 		}
 		
@@ -208,10 +208,10 @@ public class ClientesControlador {
 	@FXML
 	public void actualizarCliente(ActionEvent event) throws SQLException{
 	
-		//Verificar que el campo de cedula no esté vacío.
+		//Verificar que el campo de cedula no estï¿½ vacï¿½o.
 		if(actBuscarCedulaTF.getText().isEmpty()) {	
 			limpiarTextFields();
-			mostrarAlerta(AlertType.ERROR, "ERROR", "Campo vacío", "Por favor ingrese un valor en la casilla de búsqueda.");		
+			mostrarAlerta(AlertType.ERROR, "ERROR", "Campo vacï¿½o", "Por favor ingrese un valor en la casilla de bï¿½squeda.");		
 			return;
 		}
 
@@ -228,7 +228,7 @@ public class ClientesControlador {
 			actDireccionTF.setText(rs.getString("direccion"));			
 		}else {
 			limpiarTextFields();
-			mostrarAlerta(AlertType.ERROR, "Cliente no encontrado", null, "No se encontraron registros con la cédula ingresada.");
+			mostrarAlerta(AlertType.ERROR, "Cliente no encontrado", null, "No se encontraron registros con la cï¿½dula ingresada.");
 			return;
 		}
 		
@@ -239,17 +239,17 @@ public class ClientesControlador {
 	@FXML
 	public void actualizarClienteGuardar(ActionEvent event) throws SQLException{
 		
-		//Valida que no haya campos vacíos.
+		//Valida que no haya campos vacï¿½os.
 		if(actCedulaTF.getText().isEmpty() || actNombresTF.getText().isEmpty() || actTelefonoTF.getText().isEmpty() ||
 				actEmailTF.getText().isEmpty() || actDireccionTF.getText().isEmpty()) {
-			mostrarAlerta(AlertType.ERROR, "Error al ingresar", null, "Todos los datos son obligatorios. Por favor rellenar los campos vacíos.");			
+			mostrarAlerta(AlertType.ERROR, "Error al ingresar", null, "Todos los datos son obligatorios. Por favor rellenar los campos vacï¿½os.");			
 			return;
 		}
 		String cedulaBuscada = actBuscarCedulaTF.getText();
-		//Verifica que la cédula que está ingresando no es de algún otro cliente ya existente.
+		//Verifica que la cï¿½dula que estï¿½ ingresando no es de algï¿½n otro cliente ya existente.
 		if(actCedulaTF.getText().equals(cedulaBuscada)==false && validarCliente(actCedulaTF)) {
 			limpiarTextFields();
-			mostrarAlerta(AlertType.ERROR, "Cliente existente", "No se puede actualizar la cédula", "El cliente con dicha cédula ya existe.");
+			mostrarAlerta(AlertType.ERROR, "Cliente existente", "No se puede actualizar la cï¿½dula", "El cliente con dicha cï¿½dula ya existe.");
 			return;
 		}
 		
@@ -258,8 +258,8 @@ public class ClientesControlador {
 		sentencia = cn.createStatement();
 		sentencia.executeUpdate(sentenciaSQL);
 		
-		//Mostrar mensaje de éxito.
-		mostrarAlerta(AlertType.INFORMATION, "Registro actualizado", "Cambios guardados con éxito", null);
+		//Mostrar mensaje de ï¿½xito.
+		mostrarAlerta(AlertType.INFORMATION, "Registro actualizado", "Cambios guardados con ï¿½xito", null);
 		limpiarTextFields();
 		//Se cierra la sentencia.
 		sentencia.close();
