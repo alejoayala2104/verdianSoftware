@@ -57,4 +57,14 @@ public class HomeControlador {
 		ventana.show();
 	}
 	
+	@FXML
+	private void entrarEvaluacion(ActionEvent event) throws IOException {
+		Parent interfazEval = FXMLLoader.load(getClass().getResource("/vista/evaluacion.fxml"));
+		Scene escenaEval = new Scene(interfazEval);
+		Window nodo = ((Node) event.getSource()).getScene().getWindow();
+		Stage ventana = (Stage)(nodo);
+		ventana.setScene(escenaEval);
+		ventana.show();
+	}
+	
 }

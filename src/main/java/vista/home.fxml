@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1152.0" styleClass="background" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.HomeControlador">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1152.0" styleClass="background" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.HomeControlador">
    <children>
       <HBox layoutX="272.0" layoutY="286.0" spacing="3.0">
          <children>
@@ -46,7 +46,7 @@
             </VBox>
             <VBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="10.0">
                <children>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="125.0" prefWidth="150.0" styleClass="buttonMain">
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#entrarEvaluacion" prefHeight="125.0" prefWidth="150.0" styleClass="buttonMain">
                      <graphic>
                         <AnchorPane>
                            <children>
