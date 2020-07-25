@@ -32,8 +32,12 @@ public class HomeControlador {
 	
 	@FXML
 	Image ajus_logo = new Image (getClass().getResourceAsStream("/vista/icon/ajus_logo.png"));
+	
 	@FXML
 	ImageView ajus_logo_view = new ImageView (ajus_logo);
+	
+	@FXML
+	ImageView pass_logo_view = new ImageView (new Image (getClass().getResourceAsStream("/vista/icon/password_logo.png")));
 	
 	@FXML
 	private void entrarClientes(ActionEvent event) throws IOException {
@@ -66,5 +70,25 @@ public class HomeControlador {
 		ventana.setScene(escenaEval);
 		ventana.show();
 	}
+	
+   @FXML
+    private void entrarPagos(ActionEvent event) throws IOException {
+	  	Parent interfazPagos = FXMLLoader.load(getClass().getResource("/vista/pagos.fxml"));
+		Scene escenaPagos = new Scene(interfazPagos);
+		Window nodo = ((Node) event.getSource()).getScene().getWindow();
+		Stage ventana = (Stage)(nodo);
+		ventana.setScene(escenaPagos);
+		ventana.show();
+    }
+   
+   @FXML
+   public void entrarAdmin(ActionEvent event) throws IOException {
+	   Parent interfazAdmin = FXMLLoader.load(getClass().getResource("/vista/administracion.fxml"));
+		Scene escenaAdmin = new Scene(interfazAdmin);
+		Window nodo = ((Node) event.getSource()).getScene().getWindow();
+		Stage ventana = (Stage)(nodo);
+		ventana.setScene(escenaAdmin);
+		ventana.show();
+   }
 	
 }

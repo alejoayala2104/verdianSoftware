@@ -11,7 +11,7 @@ public class CuotaPago {
 	private LocalDate fechaPagoCuota;
 	private LocalDate fechaEfectivaCuota;
 	private String modalPagoCuota;
-	private char estadoCuota;
+	private String estadoCuota;
 	
 	
 	public CuotaPago() {
@@ -20,7 +20,7 @@ public class CuotaPago {
 	}
 
 	public CuotaPago(int codCuota, String codComprobante, int transCuota, double mensCuota, LocalDate fechaPagoCuota,
-			LocalDate fechaEfectivaCuota, String modalPagoCuota, char estadoCuota) {
+			LocalDate fechaEfectivaCuota, String modalPagoCuota, String estadoCuota) {
 		this.codCuota = codCuota;
 		this.codComprobante = codComprobante;
 		this.transCuota = transCuota;
@@ -59,7 +59,7 @@ public class CuotaPago {
 		return modalPagoCuota;
 	}
 
-	public char getEstadoCuota() {
+	public String getEstadoCuota() {
 		return estadoCuota;
 	}
 
@@ -91,7 +91,7 @@ public class CuotaPago {
 		this.modalPagoCuota = modalPagoCuota;
 	}
 
-	public void setEstadoCuota(char estadoCuota) {
+	public void setEstadoCuota(String estadoCuota) {
 		this.estadoCuota = estadoCuota;
 	}
 

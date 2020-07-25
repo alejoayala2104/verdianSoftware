@@ -67,14 +67,39 @@ public class ControladorGeneral {
 		sentenciaSQL = "SELECT * from cliente WHERE cedula like '" + tf.getText() +"';";
 		rs = ejecutarSentencia(sentenciaSQL);
 		
-		//Si se ejecuta la consulta y hay resultados, significa que el usuario existe.
+		//Si se ejecuta la consulta y hay resultados, significa que el cliente existe.
 		if(rs.next()) {
 			return true;
 		}
-		//Si no se encuentran resultados, significa que el usuario no existe.
+		//Si no se encuentran resultados, significa que el cliente no existe.
 		return false;
 	}
 	
+	//Verifica si una cuenta bancaria existe o no
+	public boolean validarCuentaBancaria(String cuenta) throws SQLException {
+		String sentenciaSQL = "select * from cuentasbancarias where numcuentabanc like '"+cuenta+"';";
+		rs = ejecutarSentencia(sentenciaSQL);
+		//Si se ejecuta la consulta y hay resultados, significa que la cuenta existe.
+		if(rs.next()) {
+			return true;
+		}
+		//Si no se encuentran resultados, significa que la cuenta no existe.
+		return false;
+	}
+	
+	//Verifica si un usuario existe o no.
+		public boolean validarUsuario(String usuario) throws SQLException {
+
+			sentenciaSQL = "SELECT * from usuarios WHERE usuario like '" + usuario +"';";
+			rs = ejecutarSentencia(sentenciaSQL);
+			
+			//Si se ejecuta la consulta y hay resultados, significa que el usuario existe.
+			if(rs.next()) {
+				return true;
+			}
+			//Si no se encuentran resultados, significa que el usuario no existe.
+			return false;
+		}
 	
 	@FXML
 	public void validarInputNumerico(KeyEvent event) {

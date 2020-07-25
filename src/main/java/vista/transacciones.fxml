@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="bpnTransMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1152.0" stylesheets="@css/transacciones.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.TransControlador">
+<BorderPane fx:id="bpnTransMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1152.0" stylesheets="@css/transacciones.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.TransControlador">
    <left>
       <VBox prefHeight="700.0" prefWidth="274.0" style="-fx-background-color: #401C72;" BorderPane.alignment="CENTER">
          <children>
@@ -269,7 +269,7 @@
                   <Label layoutX="66.0" layoutY="249.0" style="-fx-font-size: 26;" text="Digite el cliente de la transacción" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="consTransBusqueda" prefHeight="200.0" prefWidth="200.0" visible="false">
+            <AnchorPane fx:id="consTransBusqueda" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Label layoutX="66.0" layoutY="76.0" text="Consultar transacción">
                      <font>
@@ -288,6 +288,7 @@
                   <Button layoutX="686.0" layoutY="620.0" mnemonicParsing="false" onAction="#verDetallesConsTrans" text="Ver detalles" />
                   <Label layoutX="66.0" layoutY="154.0" style="-fx-font-size: 24;" text="Transacciones del cliente" />
                   <Label layoutX="66.0" layoutY="208.0" style="-fx-font-size: 18;" text="Seleccione una transacción y presione el botón Ver Detalles" />
+                  <Button layoutX="66.0" layoutY="620.0" mnemonicParsing="false" onAction="#botonAtras" prefWidth="100.0" text="Atrás" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="actTransCedula" prefHeight="200.0" prefWidth="200.0" visible="false">
@@ -393,7 +394,7 @@
                   <Button layoutX="66.0" layoutY="342.0" mnemonicParsing="false" onAction="#abrirClientesOtraVentana" text="Registrar cliente" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="actTransInfoPago" prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane fx:id="actTransInfoPago" prefHeight="200.0" prefWidth="200.0" visible="false">
                <children>
                   <Label layoutX="66.0" layoutY="76.0" text="Información de pago">
                      <font>

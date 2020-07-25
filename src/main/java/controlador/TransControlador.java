@@ -698,16 +698,19 @@ public class TransControlador implements Initializable {
     		String cedulaConsulta = clienteConsulta.getString("cedula");    		
     		try {
     			
-    			listaTransacciones=buscarTransacciones(cedulaConsulta);
+    			this.listaTransacciones=buscarTransacciones(cedulaConsulta);
     		
-	    		if(!listaTransacciones.isEmpty()) {
+	    		if(!this.listaTransacciones.isEmpty()) {	    			
+	    			
 		    		tblConsultarTransCod.setCellValueFactory(new PropertyValueFactory<>("codTrans"));
 		        	tblConsultarTransTipo.setCellValueFactory(new PropertyValueFactory<>("tipoTrans"));
 		        	tblConsultarTransMonto.setCellValueFactory(new PropertyValueFactory<>("montoTrans"));
 		        	tblConsultarTransFechaIni.setCellValueFactory(new PropertyValueFactory<>("fechaIniciacion"));
 		        	tblConsultarTransEstado.setCellValueFactory(new PropertyValueFactory<>("estadoSolicitud"));  
 		        	
-		        	tblConsultarTrans.setItems(listaTransacciones);
+		        	tblConsultarTrans.setItems(this.listaTransacciones);		        
+	    		}else {
+	    			tblConsultarTrans.setItems(null);
 	    		}
     		}catch(Exception e) {
     			System.out.println(e.toString());
@@ -756,6 +759,7 @@ public class TransControlador implements Initializable {
     	
     	AnchorPane verDetalles = new AnchorPane();
     	TextArea txaVerDetalles = new TextArea();
+    	txaVerDetalles.setEditable(false);
     	verDetalles.getChildren().add(txaVerDetalles);
     	
     	txaVerDetalles.setText(transSelected.toString());
@@ -850,7 +854,7 @@ public class TransControlador implements Initializable {
 		verDetallesStage.setScene(verDetallesScene);
 		verDetallesStage.setTitle("Detalles de transacción");
 		verDetallesStage.show();
-    	System.out.println(transSelected.toString());
+//    	System.out.println(transSelected.toString());
     }
    
     @FXML
@@ -967,8 +971,7 @@ public class TransControlador implements Initializable {
     	ResultSet clienteConsulta = controlGeneral.ejecutarSentencia("SELECT * from cliente WHERE cedula like '" + txfActTransCedula.getText() +"';");
     	if(clienteConsulta.next()) {
     		String cedulaConsulta = clienteConsulta.getString("cedula");    		
-    		try {
-    			
+    		try {    			
     			listaTransaccionesAct=buscarTransacciones(cedulaConsulta);
     		
 	    		if(!listaTransaccionesAct.isEmpty()) {
@@ -979,6 +982,8 @@ public class TransControlador implements Initializable {
 	    			tblActTransEstado.setCellValueFactory(new PropertyValueFactory<>("estadoSolicitud"));  
 		        	
 	    			tblActTrans.setItems(listaTransaccionesAct);
+	    		}else {
+	    			tblActTrans.setItems(null);
 	    		}
     		}catch(Exception e) {
     			System.out.println(e.toString());

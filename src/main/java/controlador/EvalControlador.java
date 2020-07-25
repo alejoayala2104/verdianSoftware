@@ -97,7 +97,7 @@ public class EvalControlador {
         	for(int i=0; i<transSelected.getNumCuotas();i++) {
         		int noCuota = i+1;
         		LocalDate fechaPago = transSelected.getFechaIniciacion().plusMonths((long) i+1);
-        		CuotaPago cuotai = new CuotaPago(0,"",transSelected.getCodTrans(),mensualidad,fechaPago,null,"",'M');
+        		CuotaPago cuotai = new CuotaPago(0,"",transSelected.getCodTrans(),mensualidad,fechaPago,null,"","EN MORA");
         		listaCuotaPago.add(cuotai);
         	}
         	
@@ -105,7 +105,7 @@ public class EvalControlador {
         		listaCuotaPago.forEach(cuota ->{
         			String ordenSQL = "insert into cuotaspago(transcuota,menscuota,fechapagocuota,estadocuota) "
         					+ "values ("+cuota.getTransCuota()+","+Math.round(cuota.getMensCuota())+","
-        							+ "'"+cuota.getFechaPagoCuota()+"','M') RETURNING codcuota;";
+        							+ "'"+cuota.getFechaPagoCuota()+"','EN MORA') RETURNING codcuota;";
 
         			//Obtiene el codigo de la cuenta generado por SQL después de haberla insertado 
         			ResultSet codcuotaRS = controlGeneral.ejecutarSentencia(ordenSQL);        			
@@ -134,7 +134,7 @@ public class EvalControlador {
         		listaCuotaPago.forEach(cuota ->{         			
         			String ordenSQL = "insert into cuotaspago(transcuota,menscuota,fechapagocuota,estadocuota) "
         					+ "values ("+cuota.getTransCuota()+","+Math.round(cuota.getMensCuota())+","
-        							+ "'"+cuota.getFechaPagoCuota()+"','M') RETURNING codcuota;";
+        							+ "'"+cuota.getFechaPagoCuota()+"','EN MORA') RETURNING codcuota;";
         			
         			controlGeneral.ejecutarSentenciaInsert(ordenSQL);
         		});
@@ -184,6 +184,7 @@ public class EvalControlador {
     	
     	AnchorPane verDetalles = new AnchorPane();
     	TextArea txaVerDetalles = new TextArea();
+    	txaVerDetalles.setEditable(false);
     	verDetalles.getChildren().add(txaVerDetalles);
     	
     	txaVerDetalles.setText(transSelected.toString());
