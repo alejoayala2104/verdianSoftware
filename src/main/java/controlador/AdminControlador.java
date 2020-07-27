@@ -92,6 +92,7 @@ public class AdminControlador {
     	controlGeneral.ejecutarSentenciaInsert(sentenciaSQL);
     	
     	controlGeneral.mostrarAlerta(AlertType.INFORMATION, "Usuario creado", "Usuario creado", "Credenciales listas para usar");
+    	crearUsuario(event);
     }
     
     @FXML
@@ -116,9 +117,7 @@ public class AdminControlador {
     	}else {
     		controlGeneral.mostrarAlerta(AlertType.ERROR, "Usuario no encontrado", "Usuario no encontrado", "El usuario encontrado no existe");
     		return;
-    	}
-    	
-    	   	
+    	}	
     }
     
     @FXML
@@ -128,6 +127,7 @@ public class AdminControlador {
     	controlGeneral.ejecutarSentenciaInsert(updateSQL);
     	
     	controlGeneral.mostrarAlerta(AlertType.INFORMATION, "Usuario actualizado", "Usuario actualizado con éxito", "Credenciales listas para usar");
+    	actUsuario(event);
     }
 
     @FXML
@@ -136,14 +136,24 @@ public class AdminControlador {
     	cbxTipoUsuario.setItems(FXCollections.observableArrayList("ADMINISTRADOR","AUXILIAR","JEFE"));
     }
     
+    @FXML
+   	public void botonAtras(ActionEvent event) throws SQLException {
+       	Node nodo = (Node) event.getSource();
+   		Parent actual = nodo.getParent();
+   		
+   		ObservableList<Node> hijos = stpCenter.getChildren();
+		for(int i=0; i<hijos.size();i++) {
+			if(hijos.get(i).equals(actual))
+				esconderPanesMenosIndicado(hijos.get(i-1));
+		}	
+   	}
+    
     @FXML    
     public void entrarHome(ActionEvent event) throws IOException {
-		Parent home = FXMLLoader.load(getClass().getResource("/vista/home.fxml"));
-		Scene homeScene = new Scene(home);
-		Window nodo = ((Node) event.getSource()).getScene().getWindow();
-		Stage ventana = (Stage)(nodo);
-		ventana.setScene(homeScene);
-		ventana.show();
+    	//Cierra la ventana
+    	Window nodo = ((Node) event.getSource()).getScene().getWindow();
+		Stage ventana = (Stage)(nodo);    	    	
+		ventana.close();
     }
     
     public void esconderPanesMenosIndicado(Node nodo) { 

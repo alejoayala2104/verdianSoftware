@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ClientesControlador">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1152.0" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ClientesControlador">
    <center>
       <TabPane prefHeight="464.0" prefWidth="808.0" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="300.0" tabMaxWidth="300.0" BorderPane.alignment="CENTER">
         <tabs>
@@ -25,9 +25,9 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="600.0" styleClass="background">
                      <children>
-                        <HBox layoutX="39.0" layoutY="103.0" prefHeight="176.0" prefWidth="374.0">
+                        <HBox layoutX="39.0" layoutY="103.0">
                            <children>
-                              <VBox prefHeight="208.0" prefWidth="81.0" spacing="15.0">
+                              <VBox prefHeight="208.0" prefWidth="81.0" spacing="23.0">
                                  <children>
                                     <Label text="Cédula:">
                                        <font>
@@ -41,16 +41,16 @@
                               </VBox>
                               <VBox prefHeight="176.0" prefWidth="294.0" spacing="12.0">
                                  <children>
-                                    <TextField fx:id="cedulaTF" onKeyPressed="#validarInputNumerico" prefWidth="300.0" />
-                                    <TextField fx:id="nombresTF" prefWidth="300.0" />
-                                    <TextField fx:id="telefonoTF" onKeyPressed="#validarInputNumerico" prefWidth="300.0" />
-                                    <TextField fx:id="emailTF" prefWidth="300.0" />
-                                    <TextField fx:id="direccionTF" prefWidth="300.0" />
+                                    <TextField fx:id="cedulaTF" onKeyPressed="#validarInputNumerico" prefHeight="35.0" prefWidth="300.0" />
+                                    <TextField fx:id="nombresTF" prefHeight="35.0" prefWidth="300.0" />
+                                    <TextField fx:id="telefonoTF" onKeyPressed="#validarInputNumerico" prefHeight="35.0" prefWidth="300.0" />
+                                    <TextField fx:id="emailTF" prefHeight="35.0" prefWidth="300.0" />
+                                    <TextField fx:id="direccionTF" prefHeight="35.0" prefWidth="300.0" />
                                  </children>
                               </VBox>
                            </children>
                         </HBox>
-                        <Button layoutX="302.0" layoutY="309.0" mnemonicParsing="false" onAction="#registrarCliente" prefHeight="25.0" prefWidth="115.0" text="Guardar" textFill="WHITE" />
+                        <Button layoutX="850.0" layoutY="600.0" mnemonicParsing="false" onAction="#registrarCliente" prefHeight="25.0" prefWidth="115.0" text="Guardar" textFill="WHITE" />
                         <Label layoutX="32.0" layoutY="32.0" styleClass="labelTitulo" text="Registrar Cliente" />
                      </children></AnchorPane>
             </content>
@@ -62,14 +62,14 @@
                         <FlowPane hgap="10.0" layoutX="39.0" layoutY="83.0" prefHeight="32.0" prefWidth="375.0">
                            <children>
                               <Label text="Búsqueda:" />
-                              <TextField fx:id="buscarCedulaTF" onKeyPressed="#validarInputNumerico" prefHeight="25.0" prefWidth="228.0" />
+                              <TextField fx:id="buscarCedulaTF" onKeyPressed="#validarInputNumerico" prefHeight="35.0" prefWidth="228.0" />
                               <Button mnemonicParsing="false" onAction="#consultarCliente" text="Buscar" textFill="WHITE" />
                            </children>
                         </FlowPane>
                         <Separator layoutY="127.0" prefHeight="17.0" prefWidth="600.0" />
-                        <HBox layoutX="39.0" layoutY="162.0" prefHeight="176.0" prefWidth="374.0">
+                        <HBox layoutX="39.0" layoutY="162.0" spacing="20.0">
                            <children>
-                              <VBox prefHeight="208.0" prefWidth="81.0" spacing="15.0">
+                              <VBox spacing="23.0">
                                  <children>
                                     <Label text="Cédula:" />
                                     <Label text="Nombre:" />
@@ -78,13 +78,13 @@
                                     <Label text="Dirección:" />
                                  </children>
                               </VBox>
-                              <VBox prefHeight="176.0" prefWidth="294.0" spacing="12.0">
+                              <VBox spacing="12.0">
                                  <children>
-                                    <TextField fx:id="consCedulaTF" editable="false" prefWidth="300.0" />
-                                    <TextField fx:id="consNombresTF" editable="false" prefWidth="300.0" />
-                                    <TextField fx:id="consTelefonoTF" editable="false" prefWidth="300.0" />
-                                    <TextField fx:id="consEmailTF" editable="false" prefWidth="300.0" />
-                                    <TextField fx:id="consDireccionTF" editable="false" prefWidth="300.0" />
+                                    <TextField fx:id="consCedulaTF" editable="false" prefHeight="35.0" prefWidth="300.0" />
+                                    <TextField fx:id="consNombresTF" editable="false" prefHeight="35.0" prefWidth="300.0" />
+                                    <TextField fx:id="consTelefonoTF" editable="false" prefHeight="35.0" prefWidth="300.0" />
+                                    <TextField fx:id="consEmailTF" editable="false" prefHeight="35.0" prefWidth="300.0" />
+                                    <TextField fx:id="consDireccionTF" editable="false" prefHeight="35.0" prefWidth="300.0" />
                                  </children>
                               </VBox>
                            </children>
@@ -100,15 +100,15 @@
                         <FlowPane hgap="10.0" layoutX="39.0" layoutY="83.0" prefHeight="32.0" prefWidth="375.0">
                            <children>
                               <Label text="Búsqueda:" />
-                              <TextField fx:id="actBuscarCedulaTF" onKeyPressed="#validarInputNumerico" prefHeight="25.0" prefWidth="228.0" />
+                              <TextField fx:id="actBuscarCedulaTF" onKeyPressed="#validarInputNumerico" prefHeight="35.0" prefWidth="228.0" />
                               <Button mnemonicParsing="false" onAction="#actualizarCliente" text="Buscar" textFill="WHITE" />
                            </children>
                         </FlowPane>
-                        <Button layoutX="300.0" layoutY="322.0" mnemonicParsing="false" onAction="#actualizarClienteGuardar" prefHeight="25.0" prefWidth="115.0" text="Guardar" textFill="WHITE" />
+                        <Button layoutX="850.0" layoutY="600.0" mnemonicParsing="false" onAction="#actualizarClienteGuardar" prefHeight="25.0" prefWidth="115.0" text="Guardar" textFill="WHITE" />
                         <Label layoutX="32.0" layoutY="32.0" styleClass="labelTitulo" text="Actualizar Cliente" />
-                        <HBox layoutX="39.0" layoutY="135.0" prefHeight="176.0" prefWidth="374.0">
+                        <HBox layoutX="39.0" layoutY="135.0">
                            <children>
-                              <VBox prefHeight="208.0" prefWidth="81.0" spacing="15.0">
+                              <VBox prefHeight="208.0" prefWidth="81.0" spacing="23.0">
                                  <children>
                                     <Label text="Cédula:" />
                                     <Label text="Nombre:" />
@@ -119,11 +119,11 @@
                               </VBox>
                               <VBox prefHeight="176.0" prefWidth="294.0" spacing="12.0">
                                  <children>
-                                    <TextField fx:id="actCedulaTF" onKeyPressed="#validarInputNumerico" prefWidth="300.0" />
-                                    <TextField fx:id="actNombresTF" prefWidth="300.0" />
-                                    <TextField fx:id="actTelefonoTF" onKeyPressed="#validarInputNumerico" prefWidth="300.0" />
-                                    <TextField fx:id="actEmailTF" prefWidth="300.0" />
-                                    <TextField fx:id="actDireccionTF" prefWidth="300.0" />
+                                    <TextField fx:id="actCedulaTF" onKeyPressed="#validarInputNumerico" prefHeight="35.0" prefWidth="300.0" />
+                                    <TextField fx:id="actNombresTF" prefHeight="35.0" prefWidth="300.0" />
+                                    <TextField fx:id="actTelefonoTF" onKeyPressed="#validarInputNumerico" prefHeight="35.0" prefWidth="300.0" />
+                                    <TextField fx:id="actEmailTF" prefHeight="35.0" prefWidth="300.0" />
+                                    <TextField fx:id="actDireccionTF" prefHeight="35.0" prefWidth="300.0" />
                                  </children>
                               </VBox>
                            </children>
@@ -137,8 +137,8 @@
    <right>
       <Pane prefHeight="400.0" prefWidth="147.0" BorderPane.alignment="CENTER">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="INDIGO" height="400.0" stroke="TRANSPARENT" strokeType="INSIDE" width="149.0" />
-            <ImageView fx:id="empresa_logo_view" fitHeight="191.0" fitWidth="200.0" layoutX="21.0" layoutY="243.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="INDIGO" height="700.0" stroke="TRANSPARENT" strokeType="INSIDE" width="149.0" />
+            <ImageView fx:id="empresa_logo_view" fitHeight="191.0" fitWidth="200.0" layoutX="19.0" layoutY="502.0">
                <image>
                   <Image url="@icon/empresa_logo.png" />
                </image>

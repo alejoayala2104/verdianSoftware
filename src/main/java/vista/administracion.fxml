@@ -97,6 +97,7 @@
                   <Label layoutX="66.0" layoutY="76.0" style="-fx-font-size: 36;" styleClass="labelLight" text="Contraseña generada" />
                   <Label fx:id="lblPassword" layoutX="66.0" layoutY="249.0" style="-fx-font-size: 26;" text="Contraseña del usuario x generada:  " />
                   <Button layoutX="717.0" layoutY="626.0" mnemonicParsing="false" onAction="#finCrearUsuario" prefWidth="100.0" text="Finalizar" />
+                  <Button layoutX="66.0" layoutY="626.0" mnemonicParsing="false" onAction="#botonAtras" prefWidth="100.0" text="Atrás" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="anpActUsuario" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="878.0" visible="false">
@@ -104,7 +105,7 @@
                   <Label layoutX="66.0" layoutY="323.0" style="-fx-font-size: 18;" text="Usuario" />
                   <TextField fx:id="txfActUsuario" layoutX="66.0" layoutY="354.0" prefHeight="35.0" prefWidth="230.0" />
                   <Button layoutX="717.0" layoutY="623.0" mnemonicParsing="false" onAction="#genPasswordAU" prefWidth="100.0" text="Generar" />
-                  <Label layoutX="66.0" layoutY="76.0" style="-fx-font-size: 36;" styleClass="labelLight" text="Crear usuario" />
+                  <Label layoutX="66.0" layoutY="76.0" style="-fx-font-size: 36;" styleClass="labelLight" text="Actualizar usuario" />
                   <Label layoutX="66.0" layoutY="249.0" style="-fx-font-size: 26;" text="Digite el usuario para restablecer contraseña" />
                </children>
             </AnchorPane>
@@ -113,6 +114,7 @@
                   <Label layoutX="66.0" layoutY="76.0" style="-fx-font-size: 36;" styleClass="labelLight" text="Contraseña generada" />
                   <Label fx:id="lblPasswordAU" layoutX="66.0" layoutY="249.0" style="-fx-font-size: 26;" text="Contraseña del usuario x generada:  " />
                   <Button layoutX="717.0" layoutY="626.0" mnemonicParsing="false" onAction="#finActUsuario" prefWidth="100.0" text="Finalizar" />
+                  <Button layoutX="66.0" layoutY="626.0" mnemonicParsing="false" onAction="#botonAtras" prefWidth="100.0" text="Atrás" />
                </children>
             </AnchorPane>
          </children>

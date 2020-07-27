@@ -3,6 +3,11 @@
     src: url(Roboto-Regular.ttf);
 }
 
+@font-face {
+	fx-font-family: 'Roboto Light';
+    src: url(Roboto-Light.ttf);
+}
+
 .root{
 	-fx-font-family: 'Roboto Regular';	
 }
@@ -44,6 +49,10 @@
 	-fx-font-family: 'Roboto Regular';
 	-fx-font-size:24;
 }
+.labelTituloLight{
+	-fx-font-family: 'Roboto Light';
+	-fx-font-size:24;
+}
 
 .button{
   -fx-background-color: #4B0082;
@@ -60,6 +69,22 @@
 
 .buttonMain:hover{	
   -fx-background-color:#4B0082 ;
+}
+
+.buttonBienvenida{
+	-fx-background-color: #2D004D;
+    -fx-border-radius: 5px;
+    -fx-font-family: 'Roboto Regular';
+	-fx-font-size:18;
+	-fx-text-fill:white;
+}
+
+.buttonBienvenida:hover{
+  -fx-background-color: #4B0082;
+}
+
+.buttonBienvenida:pressed{
+ -fx-background-color: #692D95;
 }
 
 

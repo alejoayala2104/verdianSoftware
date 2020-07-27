@@ -259,7 +259,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="66.0" layoutY="76.0" text="Bienvenido a Consultar Transacción!">
+                  <Label layoutX="66.0" layoutY="76.0" style="-fx-font-size: 36;" styleClass="labelLight" text="Bienvenido a Consultar Transacción!">
                      <font>
                         <Font size="36.0" />
                      </font>
@@ -269,7 +269,7 @@
                   <Label layoutX="66.0" layoutY="249.0" style="-fx-font-size: 26;" text="Digite el cliente de la transacción" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="consTransBusqueda" prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane fx:id="consTransBusqueda" prefHeight="200.0" prefWidth="200.0" visible="false">
                <children>
                   <Label layoutX="66.0" layoutY="76.0" text="Consultar transacción">
                      <font>
@@ -298,7 +298,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="66.0" layoutY="76.0" text="Bienvenido a Actualizar Transacción!">
+                  <Label layoutX="66.0" layoutY="76.0" style="-fx-font-size: 36;" styleClass="labelLight" text="Bienvenido a Actualizar Transacción!">
                      <font>
                         <Font size="36.0" />
                      </font>

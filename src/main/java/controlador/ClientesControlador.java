@@ -267,11 +267,9 @@ public class ClientesControlador {
 	
 	@FXML    
     public void entrarHome(ActionEvent event) throws IOException {
-    	Parent home = FXMLLoader.load(getClass().getResource("/vista/home.fxml"));
-		Scene homeScene = new Scene(home);
-		Window nodo = ((Node) event.getSource()).getScene().getWindow();
-		Stage ventana = (Stage)(nodo);
-		ventana.setScene(homeScene);
-		ventana.show();
+		//Cierra la ventana
+    	Window nodo = ((Node) event.getSource()).getScene().getWindow();
+		Stage ventana = (Stage)(nodo);    	    	
+		ventana.close();
     }
 }

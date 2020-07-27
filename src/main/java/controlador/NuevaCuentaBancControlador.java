@@ -82,6 +82,4 @@ public class NuevaCuentaBancControlador {
     	cbxTipoCuentaBanc.getItems().addAll("CORRIENTE","AHORROS");
     	cbxTipoCuentaBanc.getSelectionModel().selectFirst();
     }
-	
-	
 }

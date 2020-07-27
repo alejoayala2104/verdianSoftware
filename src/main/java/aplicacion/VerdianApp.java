@@ -11,13 +11,13 @@ public class VerdianApp extends Application {
 	public void start(Stage primaryStage) throws Exception {	
 		
 			Parent root = null;
-			root = FXMLLoader.load(getClass().getResource("/vista/home.fxml"));	
+			root = FXMLLoader.load(getClass().getResource("/vista/login.fxml"));	
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);	
 			primaryStage.show();		
 	}
 
 	public static void main(String[] args) {	
-		launch(args);		
+		launch(args);
 	}
 }
